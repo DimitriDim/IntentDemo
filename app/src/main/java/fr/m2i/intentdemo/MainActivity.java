@@ -53,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void onPause() {
-        super.onPause();
-    }
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         txtResult = findViewById(R.id.txtLogin);
