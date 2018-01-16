@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         //TTS = Text To Speach
         // On test si un synthétiseur vocal est présent
-        Intent intLire = new Intent (TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        Intent intLire = new Intent(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         //on pose la question avec startActivityForResult
-        startActivityForResult(intLire,REQUEST_CODE_LIRE );
+        startActivityForResult(intLire, REQUEST_CODE_LIRE);
     }
 
     public void btnDemo1(View v) {
@@ -90,15 +90,15 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
         if (requestCode == REQUEST_CODE_LIRE) {
-            if(resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS){
-                Toast.makeText(this,"Synthétiseur ok", Toast.LENGTH_LONG).show();
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                Toast.makeText(this, "Synthétiseur ok", Toast.LENGTH_LONG).show();
                 TTS_OK = true;
 
                 // le 2e this est la classe MainActivity qu'on vient d'implémenter en écouteur, sinon pas possible
-                tts = new TextToSpeech(this,this);
+                tts = new TextToSpeech(this, this);
 
-            }else{
-                Toast.makeText(this,"Synthétiseur KO :(", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Synthétiseur KO :(", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -114,13 +114,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     public void btnLire(View v) {
 
-
-        if (TTS_OK = true){
-
+        if (TTS_OK = true) {
             tts.setLanguage(Locale.ENGLISH);
-            tts.setPitch(10);
+            tts.setPitch(1);
             tts.setSpeechRate(0.5F);
-            tts.speak(txtDomaine.getText().toString(),TextToSpeech.QUEUE_FLUSH,null,null);
+            tts.speak(txtDomaine.getText().toString(), TextToSpeech.QUEUE_FLUSH, null, null);
         }
     }
 
